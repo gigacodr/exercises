@@ -1,0 +1,71 @@
+/* Use a CSS variable for your accent color */
+:root {
+    --accent-color: #800000;
+  }
+  
+  /* Default styles for the page */
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 100%;
+  }
+  
+  /* Hover or focus styles for all links */
+  a:hover,
+  a:focus {
+    font-style: italic;
+    color: var(--accent-color);
+  }
+  
+  /* Default heading styles */
+  h1 {
+    font-size: 150%;
+  }
+  
+  h2 {
+    font-size: 130%;
+    color: var(--accent-color);
+  }
+  
+  h3 {
+    font-size: 105%;
+  }
+  
+  /* Header styling */
+  header {
+    /* This block is optional if you want a different header background or spacing */
+  }
+  
+  header h2 {
+    font-size: 170%;       /* Larger than default h2 */
+    text-indent: 30px;     /* Indent */
+  }
+  
+  header h3 {
+    font-size: 130%;       /* Larger than default h3 */
+    font-style: italic;    
+    text-indent: 30px;     /* Indent */
+  }
+  
+  header img {
+    float: left;           /* Floats the logo to the left in the header */
+  }
+  
+  /* Ensures main starts below the floated image */
+  main {
+    clear: left;
+  }
+  
+  /* Footer styling */
+  footer p {
+    text-align: center;    /* Center the text in the footer */
+  }
+  
+  /* Class for emphasizing “75” in the header */
+  .large {
+    font-size: 125%;
+  }
+  .accent75 {
+  font-size: 125%;       /* Make the “75th” slightly larger */
+  color: #800000;        /* Make it red (or use var(--accent-color) if you prefer) */
+  font-weight: bold;     /* Make it bold, if that’s your desired look */
+  }
