@@ -1,6 +1,6 @@
 /* custom property */
 :root {
-	--accent-color: #800000;  /* could also be coded #800 */
+	--accent-color: #800000;
 	--gradient-color: #f6bb73;
 
 	--light_menu: white;
@@ -82,14 +82,28 @@ main {
 	}
 }
 
-/* the styles for the section */
 section {
 	padding-left: .5em;
 	border-bottom: 8px double var(--accent-color);
+
 	& img {
 		width: clamp(100px, 50%, 250px);
 		float: right;
 		margin: 0 1em .25em;
+	}
+
+	& ul{
+
+		list-style-image: url("../images/star.png");
+
+		list-style-position: inside;
+
+		margin-left: 0;
+		padding-left: 0;
+	}
+
+	& ul li{
+		padding-left: .25em;
 	}
 }
 
