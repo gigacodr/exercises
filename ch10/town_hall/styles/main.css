@@ -30,6 +30,7 @@ body {
 	line-height: 1.5;
 	margin: auto;
 	border: 2px solid var(--accent-color);
+	background-color: #ffffff;
 }
 h1, h2, h3, p, ul {
 	padding: .25em 0;
