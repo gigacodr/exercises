@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Tagesschrift';
+  src: url('Tagesschrift-Regular.woff2') format('woff2');
+  font-weight: normal;
+  font-style:  normal;
+}
+
 /* custom property */
 :root {
 	--accent-color: #800000;  /* could also be coded #800 */
@@ -45,7 +52,6 @@ ul {
 	margin-left: 2em;
 }
 
-/* the styles for the header */
 header {
 	text-align: center;
 	line-height: 1.2;
@@ -53,8 +59,10 @@ header {
 	background-image: linear-gradient(
 	    30deg, var(--gradient-color) 0%, white 30%, white 65%, var(--gradient-color) 100%);
 	& h2 {
-		font-size: 175%;
+		font-family: 'Tagesschrift', Arial, sans-serif;
+		font-size: clamp(1.75rem, 5vw, 2.5rem);
 		padding: .5em 0 0 0;
+		color: var(--accent-color);
 	}
 	& h3 {
 		font-size: 130%;
