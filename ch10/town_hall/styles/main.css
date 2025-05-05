@@ -27,7 +27,7 @@ body {
 h1, h2, h3, p, ul {
 	padding: .25em 0;
 }
-a:hover, a:focus{
+a:hover, a:focus {
 	font-style: italic;
 	color: var(--accent-color);
 }
@@ -86,10 +86,20 @@ main {
 section {
 	padding-left: .5em;
 	border-bottom: 8px double var(--accent-color);
+
 	& img {
-		width: clamp(100px, 50%, 250px);
+		width: clamp(100px, 100%, 250px);
+	}
+
+	& figure {
 		float: right;
 		margin: 0 1em .25em;
+	}
+
+	& figcaption {
+		font-weight: bold;
+		border-bottom: 1px solid var(--accent-color);
+		padding-bottom: .25em;
 	}
 }
 
@@ -148,7 +158,7 @@ footer {
 		text-decoration: none;
 		margin: 0 2px 2px 0;
 	}
-	& a:link, a:visited { 
+	& a:link, a:visited {
 		color: var(--light_menu);
 	}
 	& a:hover, a:focus, a.current {
