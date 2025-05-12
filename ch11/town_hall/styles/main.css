@@ -1,6 +1,6 @@
-/* custom property */
+
 :root {
-	--accent-color: #800000;  /* could also be coded #800 */
+	--accent-color: #800000;
 	--gradient-color: #f6bb73;
 
 	--light_menu: white;
@@ -8,15 +8,68 @@
 	--dark_menu: black;
 }
 
-/* reset */
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
 
-/* the styles for the table */
+figure {
+    margin: 2em 0 1em;
+}
 
+figcaption h2 {
+    font-size: 130%;
+	color: var(--accent-color);
+    padding: .25em 0 0.5em;
+    margin: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 0.5em;
+    text-align: left;
+    vertical-align: top;
+}
+
+thead th {
+    border-bottom: 2px solid var(--accent-color);
+    font-weight: bold;
+}
+
+tbody td {
+    border-bottom: 1px solid var(--accent-color);
+}
+
+tbody td:first-child[scope="rowgroup"] {
+    border-right: 1px solid var(--accent-color);
+}
+
+th:last-child,
+td:last-child {
+    text-align: right;
+}
+
+tfoot td {
+    font-weight: bold;
+    padding: 0.5em;
+}
+
+tfoot tr:first-child td {
+    border-top: 2px solid var(--accent-color);
+}
+
+tfoot tr:not(:first-child) td {
+    border-top: 1px solid var(--accent-color);
+}
+
+tfoot td[colspan="3"] {
+    text-align: right;
+}
 
 
 /* default styles */
