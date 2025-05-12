@@ -38,6 +38,45 @@ form {
 	}
 }
 
+input:required:invalid {
+    border: 2px solid red;
+}
+
+input:valid {
+    border: 1px solid black;
+}
+
+#exp_month {
+    width: 49%;
+    display: inline-block;
+    margin-right: 1%;
+}
+
+#exp_year {
+    width: 49%;
+    display: inline-block;
+}
+
+button[type="submit"] {
+    font-weight: bold;
+    width: 10em;
+    background-color: var(--accent-color);
+    color: white;
+    border-radius: 6px;
+    padding: .5em;
+    margin-bottom: 1em;
+    border: none;
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+button[type="submit"]:hover {
+    background-color: var(--gradient-color);
+    color: black;
+    cursor: pointer;
+}
+
 
 /* default styles */
 body {
