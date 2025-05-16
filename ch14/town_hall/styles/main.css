@@ -27,9 +27,6 @@ body {
 h1, h2, h3, p, ul {
 	padding: .25em 0;
 }
-video {
-    width: 90%;
-}
 a:hover, a:focus{
 	font-style: italic;
 	color: var(--accent-color);
@@ -201,7 +198,6 @@ footer {
 	background-color: var(--accent-color);
 	color: var(--light_menu);
 	display: none;
-	z-index: 1;
 	& > li a { margin: 2px; }
 }
 
