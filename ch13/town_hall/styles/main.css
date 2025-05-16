@@ -82,6 +82,11 @@ main {
 	}
 }
 
+video {
+    width: 90%;
+    margin-bottom: 1em;
+}
+
 /* the styles for the section */
 section {
 	padding-left: .5em;
@@ -199,6 +204,7 @@ footer {
 	color: var(--light_menu);
 	display: none;
 	& > li a { margin: 2px; }
+	z-index: 1;
 }
 
 
