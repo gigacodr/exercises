@@ -1,6 +1,6 @@
-/* custom property */
+
 :root {
-	--accent-color: #800000;  /* could also be coded #800 */
+	--accent-color: #800000;
 	--gradient-color: #f6bb73;
 
 	--light_menu: white;
@@ -8,14 +8,12 @@
 	--dark_menu: black;
 }
 
-/* reset */
 * {
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
 
-/* default styles */
 body {
 	font-family: Arial, Helvetica, sans-serif;
     font-size: calc(15px + .2vw);
@@ -23,6 +21,14 @@ body {
 	line-height: 1.5;
 	margin: auto;
 	border: 2px solid var(--accent-color);
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto auto auto auto;
+	grid-template-areas:
+		"header"
+		"nav"
+		"main"
+		"footer";
 }
 h1, h2, h3, p, ul {
 	padding: .25em 0;
@@ -45,8 +51,8 @@ ul {
 	margin-left: 2em;
 }
 
-/* the styles for the header */
 header {
+	grid-area: header;
 	text-align: center;
 	line-height: 1.2;
 	border-bottom: 2px solid var(--accent-color);
@@ -66,24 +72,28 @@ header {
 	}
 }
 
-/* the styles for the main content */
 main {
-	display: flex;
-	flex-direction: column-reverse;
+	grid-area: main;
+	display: grid;
 	padding: 0 1em 1em;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto auto;
+	grid-template-areas:
+		"section"
+		"aside";
 	& blockquote {
 		font-style: italic;
 		padding-left: 1em;
 	}
-	& h3 + img { /* speaker images */
+	& h3 + img {
 		width: clamp(40px, 50%, 75px);
 		border: 4px double var(--accent-color);
 		border-radius: 10px;
 	}
 }
 
-/* the styles for the section */
 section {
+	grid-area: section;
 	padding-left: .5em;
 	border-bottom: 8px double var(--accent-color);
 	& img {
@@ -93,13 +103,13 @@ section {
 	}
 }
 
-/* the styles for the aside */
 aside {
+	grid-area: aside;
 	padding-right: .5em;
 }
 
-/* the styles for the footer */
 footer {
+	grid-area: footer;
 	background-color: var(--accent-color);
 	& p {
 		text-align: center;
@@ -108,7 +118,6 @@ footer {
 	}
 }
 
-/* CSS class */
 .featured {
 	border-top: 2px solid var(--accent-color);
 	border-bottom: 2px solid var(--accent-color);
@@ -122,14 +131,13 @@ footer {
 		color: black;
 	}
 	& p {
-		padding: .5em 0; 
-	}	
+		padding: .5em 0;
+	}
 }
 .large {
 	font-size: 125%;
 }
 
-/* styles for the menu */
 .menu {
 	position: absolute;
 	left: 0;
@@ -139,6 +147,7 @@ footer {
 }
 
 .navbar {
+	grid-area: nav;
 	clear: left;
 	position: relative;
 	background-color: var(--accent-color);
@@ -148,7 +157,7 @@ footer {
 		text-decoration: none;
 		margin: 0 2px 2px 0;
 	}
-	& a:link, a:visited { 
+	& a:link, a:visited {
 		color: var(--light_menu);
 	}
 	& a:hover, a:focus, a.current {
@@ -162,28 +171,27 @@ footer {
 	}
 }
 
-.menu-btn {                                
+.menu-btn {
     display: block;
     padding: 1em;
-    color: var(--light_menu); 
+    color: var(--light_menu);
 }
-.menu-btn::after { 
-    content: "\2630";                    /* hamburger symbol */
+.menu-btn::after {
+    content: "\2630";
 }
 
-#checkbox-toggle { display: none; }      /* checkbox is always hidden */
+#checkbox-toggle { display: none; }
 
-/* when checkbox is checked, show menu and change icon */
-#checkbox-toggle:checked ~ .menu { 
-    display: block; 
+#checkbox-toggle:checked ~ .menu {
+    display: block;
 }
 #checkbox-toggle:checked ~ .menu-btn::after {
-    content: "\2716";                    /* close (X) symbol */
+    content: "\2716";
 }
 
 .menu li:has(.submenu) {
 	position: relative;
-	& small::after { content: "\25b6"; }  /* right triangle */
+	& small::after { content: "\25b6"; }
 	& small { margin-left: .25em; }
 	&:hover > .submenu {
 		display: block;
@@ -203,39 +211,41 @@ footer {
 
 @media only screen and (min-width: 922px) {
 	main {
-		flex-direction: row;
+		grid-template-columns: 25% 1fr;
+		grid-template-rows: auto;
+		grid-template-areas:
+			"aside section";
 	}
-	
+
 	section {
-		flex-basis: 75%;
 		border-bottom: none;
 	}
-	
+
 	aside {
-		flex-basis: 25%;
 	}
 }
 
 @media only screen and (min-width: 786px) {
 
 	.menu {
-		display: flex;
+		display: grid;
+		grid-template-columns: repeat(5, 1fr);
+		grid-template-rows: auto;
 		position: relative;
 		width: 100%;
-		& li { 
-			flex-basis: 20%; 
+		& li {
 			text-align: center;
 		}
 	}
-		
+
 	.menu-btn { display: none; }
 
-	#checkbox-toggle:checked ~ .menu { display: flex; }
+	#checkbox-toggle:checked ~ .menu { display: grid; }
 
 	.menu li:has(.submenu) {
-		& small::after { content: "\25bc"; }  /* down triangle */
+		& small::after { content: "\25bc"; }
 	}
-	
+
 	.submenu {
 		top: auto;
 		left: 0;
