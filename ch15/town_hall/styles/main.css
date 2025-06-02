@@ -1,6 +1,5 @@
-/* custom property */
 :root {
-	--accent-color: #800000;  /* could also be coded #800 */
+	--accent-color: #800000;
 	--gradient-color: #f6bb73;
 
 	--light_menu: white;
@@ -79,6 +78,11 @@ main {
 		width: clamp(40px, 50%, 75px);
 		border: 4px double var(--accent-color);
 		border-radius: 10px;
+		transition: margin-left 2s, transform 2s;
+		transform-origin: right;
+	}
+	& h3 + img:hover {
+		transform: rotate(180deg);
 	}
 }
 
@@ -108,7 +112,6 @@ footer {
 	}
 }
 
-/* CSS class */
 .featured {
 	border-top: 2px solid var(--accent-color);
 	border-bottom: 2px solid var(--accent-color);
@@ -123,8 +126,23 @@ footer {
 	}
 	& p {
 		padding: .5em 0; 
-	}	
+	}
+	& article img {
+		animation-name: pulseEffect;
+		animation-duration: 2s;
+		animation-timing-function: ease-in-out;
+		animation-iteration-count: infinite;
+		animation-direction: alternate;
+	}
 }
+
+@keyframes pulseEffect {
+	to {
+		filter: drop-shadow(0 0 10px var(--accent-color)) brightness(125%);
+		transform: scale(1.1);
+	}
+}
+
 .large {
 	font-size: 125%;
 }
@@ -151,7 +169,7 @@ footer {
 	& a:link, a:visited { 
 		color: var(--light_menu);
 	}
-	& a:hover, a:focus, a.current {
+	& a:hover, a:focus, a:not([href]) {
 		background-color: var(--mid_menu);
 		color: var(--dark_menu);
 	}
@@ -234,7 +252,7 @@ footer {
 	#checkbox-toggle:checked ~ .menu { display: flex; }
 
 	.menu li:has(.submenu) {
-		& small::after { content: "\25bc"; }  /* down triangle */
+		& small::after { content: "\25bc"; }
 	}
 	
 	.submenu {
@@ -264,4 +282,17 @@ footer {
 			margin: .75em 1em;
 		}
 	}
+}
+
+@media (prefers-reduced-motion: reduce) {
+  main h3 + img {
+    transition: none !important;
+  }
+  main h3 + img:hover {
+    transform: none !important;
+	margin-left: 0 !important;
+  }
+  .speaker article img {
+    animation: none !important;
+  }
 }
